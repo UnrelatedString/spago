@@ -77,6 +77,7 @@ type PackageConfig =
   { name :: PackageName
   , description :: Maybe String
   , dependencies :: Dependencies
+  , classDependencies :: Maybe Dependencies
   , build :: Maybe PackageBuildOptionsInput
   , bundle :: Maybe BundleConfig
   , run :: Maybe RunConfig
@@ -89,6 +90,7 @@ packageConfigCodec = CJ.named "PackageConfig" $ CJS.objectStrict
   $ CJS.recordProp @"name" PackageName.codec
   $ CJS.recordPropOptional @"description" CJ.string
   $ CJS.recordProp @"dependencies" dependenciesCodec
+  $ CJS.recordPropOptional @"classDependencies" dependenciesCodec
   $ CJS.recordPropOptional @"build" packageBuildOptionsCodec
   $ CJS.recordPropOptional @"bundle" bundleConfigCodec
   $ CJS.recordPropOptional @"run" runConfigCodec

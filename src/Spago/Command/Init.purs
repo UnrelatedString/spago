@@ -211,6 +211,7 @@ defaultConfig' opts =
   { package: (getDefaultConfigPackageOptions opts) <#> \{ name, dependencies, test, build } ->
       { name
       , dependencies: Dependencies $ Map.fromFoldable $ map mkDep dependencies
+      , classDependencies: Nothing
       , description: Nothing
       , build: build <#> \{ censorProjectWarnings, strict, pedanticPackages } ->
           { censorProjectWarnings

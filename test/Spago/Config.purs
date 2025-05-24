@@ -203,6 +203,7 @@ validSpagoYaml =
           , run: Nothing
           , description: Nothing
           , dependencies: mkDependencies [ "aff", "prelude", "console", "effect" ]
+          , classDependencies: Nothing
           , test: Just
               { main: "Test.Main"
               , dependencies: mkDependencies [ "spec", "spec-node" ]
